@@ -51,3 +51,13 @@ npm run dev
 # Build for production
 npm run build
 ```
+
+## 📤 Deploying to GitHub Pages
+
+This template is configured to deploy to **GitHub Pages** as a project site (e.g. `https://<username>.github.io/<repo-name>/`).
+
+**Why the base path matters:** GitHub Pages serves project sites from a subpath (`/<repo-name>/`), not from the root. If the app is built with `base: '/'`, the browser will request assets at `.../assets/...` instead of `.../<repo-name>/assets/...`, causing **404 errors** and a blank page.
+
+**What we do:** In `vite.config.ts`, the production build uses `base: '/vue-starter/'` so all asset and script URLs are prefixed with the repo path. Locally, `npm run dev` still uses `base: '/'`.
+
+**If your repo name is different:** Update the `base` value in `vite.config.ts` to match your repository name (e.g. `'/my-app/'` for repo `my-app`). Then rebuild and redeploy.
